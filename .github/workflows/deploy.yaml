@@ -8,6 +8,8 @@ jobs:
   build-push:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Run Renovate on K8s Repo
         uses: renovatebot/github-action@v40.1.0
         with:
