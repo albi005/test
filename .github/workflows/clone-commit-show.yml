@@ -8,6 +8,8 @@ on:
 jobs:
   clone_commit_show:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Clone repository
         run: |
@@ -20,6 +22,30 @@ jobs:
           echo "Commit created by workflow at $(date -u +%Y-%m-%dT%H:%M:%SZ)" > .workflow-commit.txt
           git add .workflow-commit.txt
           git commit -m "Add workflow commit marker"
+      - name: Push branch
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "GH_TOKEN secret is required to push and open a PR."
+            exit 1
+          fi
+          cd k8s
+          branch="workflow/commit-$(date -u +%Y%m%d%H%M%S)"
+          git checkout -b "$branch"
+          git push origin "$branch"
+      - name: Open PR
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          cd k8s
+          branch="$(git rev-parse --abbrev-ref HEAD)"
+          gh pr create \
+            --repo dummy-alb1/k8s \
+            --title "Automated workflow commit" \
+            --body "Created by workflow run ${GITHUB_RUN_ID}." \
+            --base main \
+            --head "$branch"
       - name: Show commit details
         run: |
           cd k8s
