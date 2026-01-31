@@ -9,4 +9,6 @@ module.exports = {
   // Optional: Clean up stale branches on the fork
   prConcurrentLimit: 0,
   prHourlyLimit: 0,
+  onboarding: false,
+  requireConfig: 'optional',
 };
