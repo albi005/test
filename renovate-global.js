@@ -1,6 +1,5 @@
 module.exports = {
   platform: 'github',
-  autodiscover: false,
   onboarding: false,
   forkToken: process.env.RENOVATE_TOKEN,
   requireConfig: 'optional',
@@ -9,8 +8,8 @@ module.exports = {
       repository: 'dummy-alb1/k8s-test',
       enabledManagers: ['kubernetes'],
       kubernetes: {
-        fileMatch: ['startsch/startsch.yaml'],
-        // fileMatch: ['^startsch/startsch\\.yaml$'],
+        managerFilePatterns: ['startsch/startsch.yaml'],
+        // managerFilePatterns: ['^startsch/startsch\\.yaml$'],
       },
       packageRules: [
         {
