@@ -1,0 +1,23 @@
+name: Renovate dummy-alb1/k8s-test
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Renovate on K8s Repo
+        uses: renovatebot/github-action@v40.1.0
+        with:
+          # We point to the config file we created above
+          configurationFile: renovate.js
+          # We tell it specifically to run the bot logic
+          renovate-version: latest
+          token: ${{ secrets.APT }}
+        env:
+          LOG_LEVEL: debug # Uncomment if you need to troubleshoot
+          # This forces the token into the context so Renovate can use it
+          RENOVATE_TOKEN: ${{ secrets.APT }}
+
