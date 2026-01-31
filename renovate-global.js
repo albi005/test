@@ -14,7 +14,7 @@ module.exports = {
       packageRules: [
         {
           description: 'Disable all updates by default for this repo',
-          matchPackagePatterns: ['*'],
+          matchPackageNames: ['*'],
           enabled: false,
         },
         {

@@ -43,6 +43,6 @@ jobs:
           renovate-version: latest
           token: ${{ secrets.APT }}
         env:
-          # LOG_LEVEL: debug # Uncomment if you need to troubleshoot
+          LOG_LEVEL: debug # Uncomment if you need to troubleshoot
           # This forces the token into the context so Renovate can use it
           RENOVATE_TOKEN: ${{ secrets.APT }}
