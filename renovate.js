@@ -11,4 +11,5 @@ module.exports = {
   prHourlyLimit: 0,
   onboarding: false,
   requireConfig: 'optional',
+  forkToken: process.env.RENOVATE_TOKEN,
 };
