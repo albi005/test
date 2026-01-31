@@ -5,7 +5,8 @@ module.exports = {
   // Critical: This forces Renovate to use the Forking model
   forkProcessing: "enabled",
   // Optional: Optimize speed by only looking for docker updates
-  enabledManagers: ["kubernetes", "kustomize"], 
+  enabledManagers: ["kubernetes"], 
+  // enabledManagers: ["kubernetes", "kustomize"], 
   // Optional: Clean up stale branches on the fork
   prConcurrentLimit: 0,
   prHourlyLimit: 0,
