@@ -14,7 +14,7 @@ jobs:
         uses: renovatebot/github-action@v40.1.0
         with:
           # We point to the config file we created above
-          configurationFile: renovate.js
+          configurationFile: renovate-global.js
           # We tell it specifically to run the bot logic
           renovate-version: latest
           token: ${{ secrets.APT }}
@@ -22,4 +22,3 @@ jobs:
           LOG_LEVEL: debug # Uncomment if you need to troubleshoot
           # This forces the token into the context so Renovate can use it
           RENOVATE_TOKEN: ${{ secrets.APT }}
-
