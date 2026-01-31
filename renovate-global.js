@@ -19,7 +19,7 @@ module.exports = {
         },
         {
           description: 'Enable only the specific image and force digest pinning',
-          matchPackageNames: ['ghcr.io/startsch/kir-dev'],
+          matchPackageNames: ['ghcr.io/kir-dev/startsch'],
           enabled: true,
           pinDigests: true,
         },
