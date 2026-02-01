@@ -9,7 +9,6 @@ module.exports = {
       enabledManagers: ['kubernetes'],
       kubernetes: {
         managerFilePatterns: ['startsch/startsch.yaml'],
-        // managerFilePatterns: ['^startsch/startsch\\.yaml$'],
       },
       packageRules: [
         {
@@ -22,6 +21,7 @@ module.exports = {
           matchPackageNames: ['ghcr.io/kir-dev/startsch'],
           enabled: true,
           pinDigests: true,
+          extends: [":rebaseStalePrs"],
         },
       ],
     },
