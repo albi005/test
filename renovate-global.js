@@ -23,6 +23,7 @@ module.exports = {
           pinDigests: true,
           internalChecksFilter: 'none',
           stabilityDays: 0,
+          matchUpdateTypes: ['digest', 'pin'],
         },
       ],
     },
